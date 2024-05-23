@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System - User Profile</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="profile-container">
+        <div class="profile-header">
+            <h1>User Profile</h1>
+            <div class="profile-photo">
+                <img id="profilePhoto" src="download.jpeg" alt="Profile Photo">
+                <button class="btn" onclick="document.getElementById('fileInput').click()">Change Photo</button>
+                <input type="file" id="fileInput" style="display:none">
+            </div>
+            <div class="profile-info">
+                <h2 id="username">Name</h2>
+                
+                <p id="userid">User ID: </p>
+                
+
+                
+                
+            </div>
+        </div>
+        <div class="profile-content">
+            <h3>Borrowed Books</h3>
+            <table id="borrowedBooksTable">
+                <thead>
+                    <tr>
+                        <th>Book Title</th>
+                        <th>Issue Date</th>
+                        <th>Due Date</th>
+                        <th>Fine</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example data -->
+                    <tr>
+                        <td>Book One</td>
+                        <td>01/01/2024</td>
+                        <td>01/15/2024</td>
+                        <td>1.00 rs/-</td>
+                    </tr>
+                    <tr>
+                        <td>Book Two</td>
+                        <td>01/05/2024</td>
+                        <td>01/20/2024</td>
+                        <td>2.00 rs/-</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Notifications</h3>
+            <ul id="notifications">
+                <li>You have 1 book due tomorrow.</li>
+                <li>Your profile information was updated.</li>
+            </ul>
+        </div>
+        <div class="profile-footer">
+            <button class="btn" onclick="showModalupdateProfile()">Update Profile</button>
+        </div>
+
+        <div class="profile-footer">
+            <button class="btn" onclick="showModalPayFine()">Pay fine</button>
+        </div>
+
+
+        <div class="profile-footer">
+            <button class="btn" onclick="showModalIssueBook()">Issue new book</button>
+        </div>
+
+
+        <div class="profile-footer">
+            <button class="btn" >Go to Home page </button>
+        </div>
+
+    </div>
+
+    <!-- The Modal -->
+    <div id="updateProfileModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="hideModalupdateProfile()">&times;</span>
+            <h2>Update Profile</h2>
+            <label for="updateName">Name:</label>
+            <input type="text" id="updateName" placeholder="Enter new name">
+            <button class="btn" onclick="saveChanges()">Save Changes</button><br>
+        </div>
+    </div>
+                 
+                  <div id="PayFineModal" class="modal"  >
+                    <div class="modal-content">
+                        <span class="close" onclick="hideModalPayFine()">&times;</span>
+                    <h2>Select Payment Method</h2>
+                    <label for="paymentMethod">Choose a payment method:</label>
+                    <select id="paymentMethod">
+                        <option value=""></option>
+                        <option value="creditCard">Credit Card</option>
+                        <option value="debitCard">Debit Card</option>
+                        <option value="paypal">PayPal</option>
+                        
+                    </select>
+                    <button class="btn" onclick="PayFine()">Process Payment</button>
+                    </div>
+
+                  </div>
+
+            
+                  <div id="IssueBookModal" class="modal"  >
+                    <div class="modal-content">
+                    <span class="close" onclick=" hideModalIssueBook()">&times;</span>
+            <h2>Issue books</h2>
+            <label for="updateBooks">Select the Books: </label>
+            <select id="updateBooks" name="exist" title="something" >
+                <option value=""></option>
+                <option value="pay">existed</option>
+                <option value="pay">New imported</option>
+                
+                
+              </select>
+            
+            <button class="btn" onclick="IssueNewBook()">Issue new book</button> <br>
+             
+
+        </div>
+
+    </div>  
+
+    <script src="script.js"></script>
+
+    <script>
+        // Function to show the modal for updateprofile
+        function showModalupdateProfile() {
+            var modal = document.getElementById("updateProfileModal");
+            if (modal) {
+                modal.style.display = "block";
+            }
+        }
+
+        // Function to hide the modal for updateprofile
+        function hideModalupdateProfile() {
+            var modal = document.getElementById("updateProfileModal");
+            if (modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Function to show the modal for PayFine
+
+        function showModalPayFine() {
+            var modal = document.getElementById("PayFineModal");
+            if (modal) {
+                modal.style.display = "block";
+            }
+        }
+
+         // Function to hide the modal for PayFine
+
+        function hideModalPayFine() {
+            var modal = document.getElementById("PayFineModal");
+            if (modal) {
+                modal.style.display = "none";
+            }
+        }
+        
+        
+       // Function to show the modal for IssueBookModal
+
+        function showModalIssueBook() {
+            var modal = document.getElementById("IssueBookModal");
+            if (modal) {
+                modal.style.display = "block";
+            }
+        }
+
+         // Function to hide the modal for  IssueBookModal
+
+        function hideModalIssueBook() {
+            var modal = document.getElementById("IssueBookModal");
+            if (modal) {
+                modal.style.display = "none";
+            }
+        }
+
+
+
+        // Function to save changes
+        function saveChanges() {
+            var newName = document.getElementById("updateName").value;
+            var username = document.getElementById("username");
+            if (newName) {
+                username.textContent = newName;
+                hideModalupdateProfile();
+            }
+        }
+
+
+   // Function to Pay fine
+        function PayFine() {
+    // Get the selected payment method
+    var paymentMethod = document.getElementById("paymentMethod").value;
+
+    // Validate if a payment method is selected
+    if (paymentMethod !== "") {
+        // Process payment
+        alert("Your Payment is initiated!, you are requested not to refresh the page and wait for the payment page arrival ! ");
+        
+    } else {
+        // If no payment method is selected, show an error message
+        alert("Please select a payment method.");
+    }
+}
+
+//Function to IssueBook
+
+function IssueNewBook(){
+    var updateBooks = document.getElementById("updateBooks").value;
+    if (updateBooks != ""){
+        alert("Your new book request is recorded , a conformation email is already has sent to you regarding this process , please go through the email and select your preferred book!")
+    }
+    else {
+        alert("Please select the between the existing options");
+    }
+}
+
+    </script>
+</body>
+</html>

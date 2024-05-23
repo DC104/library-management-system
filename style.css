@@ -1,0 +1,170 @@
+
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: Arial, sans-serif;
+    }
+
+    .background-image {
+        background: url('library.jpeg') no-repeat center center fixed;
+        background-size: cover;
+        filter: blur(20px);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
+    .profile-container {
+        background: transparent;
+        margin: 50px auto;
+        padding: 20px;
+        width: 80%;
+        max-width: 900px;
+        border-radius: 30px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .profile-header {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 20px;
+    }
+
+    .profile-photo {
+        margin-right: 20px;
+        position: relative;
+    }
+
+    .profile-photo img {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-photo .btn {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100px;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        text-align: center;
+        padding: 5px 0;
+        cursor: pointer;
+    }
+
+    .profile-info {
+        flex-grow: 1;
+    }
+
+    .profile-info h2 {
+        margin: 0;
+    }
+
+    .profile-content {
+        margin-top: 20px;
+    }
+
+    .profile-content h3 {
+        margin-top: 20px;
+    }
+
+    #borrowedBooksTable {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    #borrowedBooksTable th, #borrowedBooksTable td {
+        border: 3px solid #ccc;
+        padding: 10px;
+        text-align: left;
+    }
+
+    #notifications {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 10px;
+    }
+
+    #notifications li {
+        background: transparent;
+        padding: 10px;
+        margin-bottom: 5px;
+        border: 4px solid #ccc;
+    }
+
+    .profile-footer {
+        text-align: right;
+        margin-top: 20px;
+    }
+
+    .profile-footer .btn {
+        background: #5680ac;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .profile-footer .btn:hover {
+        background: #0056b3;
+    }
+
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+        background-color: peachpuff;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 500px;
+        border-radius: 10px;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: rgb(127, 25, 25);
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .modal .btn {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    .modal .btn:hover {
+        background: #0056b3;
+    }
